@@ -94,18 +94,18 @@ a {
 
 .welcome-message {
   font-style: italic;
-  font-size: 18px;
+  font-size: 20px;
   color: #f3f3f3;
   line-height: 28px;
 }
 
 #skills-h3 {
-  color: #f5ae23;
+  color: #eda210;
   display: none;
 }
 
 .orange {
-  background-color: #f5ae23;
+  background-color: #eda210;
 }
 
 .orange-text {
@@ -129,7 +129,7 @@ a {
 
 /* TODO: Replace with image later */
 #header {
-  background-color: #484848;
+  background-color: #0d2a2e;
 }
 
 .flex-box {
@@ -158,7 +158,7 @@ ul {
 
 .biopic {
   float: left;
-  padding: 10px;
+  padding: 50px;
   width: 200px;
   display: none;
 }

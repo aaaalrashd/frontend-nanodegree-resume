@@ -54,7 +54,7 @@ var projects = {
         "title": "Responsive website",
         "dates": "NOV, 2017",
         "description": "Make a site for display for many sizes in a Desktops, Tablets and phones with different screens with a good shape.",
-        "images": "images/wb.png"
+        "images": ["images/wb.png"]
     }]
 
 };
@@ -62,40 +62,47 @@ var projects = {
 
 //////////////////////////////////////////////////
 
-$("#header").prepend(HTMLheaderRole.replace("%data%", bio.role));
-$("#header").prepend(HTMLheaderName.replace("%data%", bio.name));
 
-$("#topContacts").append(HTMLmobile.replace("%data%", bio.contacts.mobile));
-$("#topContacts").append(HTMLemail.replace("%data%", bio.contacts.email));
-$("#topContacts").append(HTMLgithub.replace("%data%", bio.contacts.github));
-$("#topContacts").append(HTMLtwitter.replace("%data%", bio.contacts.twitter));
-$("#topContacts").append(HTMLlocation.replace("%data%", bio.contacts.location));
+
 //
-$("#header").append(HTMLbioPic.replace("%data%", bio.biopic));
-$("#header").append(HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage));
+
 //
 
 
-if (bio.skills.length > 0) {
+///////////////////
+
+bio.display = function() {
+   
+    $("#header").prepend(HTMLheaderRole.replace("%data%", bio.role));
+    $("#header").prepend(HTMLheaderName.replace("%data%", bio.name));
+    $("#header").append(HTMLbioPic.replace("%data%", bio.biopic));
+    $("#header").append(HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage));
+    $("#topContacts").append(HTMLmobile.replace("%data%", bio.contacts.mobile));
+    $("#topContacts").append(HTMLemail.replace("%data%", bio.contacts.email));
+    $("#topContacts").append(HTMLgithub.replace("%data%", bio.contacts.github));
+    $("#topContacts").append(HTMLtwitter.replace("%data%", bio.contacts.twitter));
+    $("#topContacts").append(HTMLlocation.replace("%data%", bio.contacts.location));
+    
+    if (bio.skills.length > 0) {
     $("#header").append(HTMLskillsStart);
-
-    var formattedSkill = HTMLskills.replace("%data%", bio.skills[0]);
+        for (i = 0; i < bio.skills.length; i++) {
+    var formattedSkill = HTMLskills.replace("%data%", bio.skills[i]);
     $("#skills").append(formattedSkill);
-    formattedSkill = HTMLskills.replace("%data%", bio.skills[1]);
-    $("#skills").append(formattedSkill);
-    formattedSkill = HTMLskills.replace("%data%", bio.skills[2]);
-    $("#skills").append(formattedSkill);
-    formattedSkill = HTMLskills.replace("%data%", bio.skills[3]);
-    $("#skills").append(formattedSkill);
-    formattedSkill = HTMLskills.replace("%data%", bio.skills[4]);
-    $("#skills").append(formattedSkill);
-}
-
+    }
+  
 $("#footerContacts").append(HTMLmobile.replace("%data%", bio.contacts.mobile));
 $("#footerContacts").append(HTMLemail.replace("%data%", bio.contacts.email));
 $("#footerContacts").append(HTMLgithub.replace("%data%", bio.contacts.github));
 $("#footerContacts").append(HTMLtwitter.replace("%data%", bio.contacts.twitter));
 $("#footerContacts").append(HTMLlocation.replace("%data%", bio.contacts.location));
+  
+      
+        }
+};
+
+///////////////////////
+
+
 
 /////////////////////////////////////////////////////////////////////////
 
@@ -172,12 +179,12 @@ projects.display = function() {
     if (projects.projects.length > 0) {
         $("#projects").append(HTMLprojectStart);
 
-        for (var project in projects.projects) {
-            var formattedprojectTitle = HTMLprojectTitle.replace("%data%", projects.projects[project].title).replace("%data%", projects.projects[project].title);
+        for (i = 0; i < projects.projects.length; i++) {
+            var formattedprojectTitle = HTMLprojectTitle.replace("%data%", projects.projects[i].title).replace("%data%", projects.projects[i].title);
 
-            var formattedprojectDates = HTMLprojectDates.replace("%data%", projects.projects[project].dates);
-            var formattedprojectDescription = HTMLprojectDescription.replace("%data%", projects.projects[project].description);
-            var formattedProjectImage = HTMLprojectImage.replace("%data%", projects.projects[project].images);
+            var formattedprojectDates = HTMLprojectDates.replace("%data%", projects.projects[i].dates);
+            var formattedprojectDescription = HTMLprojectDescription.replace("%data%", projects.projects[i].description);
+            var formattedProjectImage = HTMLprojectImage.replace("%data%", projects.projects[i].images);
             ////////////////////////////////////////////////////////////////////////////
             $(".project-entry:last").append(formattedprojectTitle);
             $(".project-entry:last").append(formattedprojectDates);
@@ -189,6 +196,7 @@ projects.display = function() {
 
 };
 $("#mapDiv").append(googleMap);
+bio.display();
 education.display();
 work.display();
 projects.display();
