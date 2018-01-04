@@ -54,7 +54,7 @@ var projects = {
         "title": "Responsive website",
         "dates": "NOV, 2017",
         "description": "Make a site for display for many sizes in a Desktops, Tablets and phones with different screens with a good shape.",
-        "images": ["images/wb.png"]
+        "images": ["images/wb.png","images/wb.png"]
     }]
 
 };
@@ -181,16 +181,20 @@ projects.display = function() {
 
         for (i = 0; i < projects.projects.length; i++) {
             var formattedprojectTitle = HTMLprojectTitle.replace("%data%", projects.projects[i].title).replace("%data%", projects.projects[i].title);
-
             var formattedprojectDates = HTMLprojectDates.replace("%data%", projects.projects[i].dates);
             var formattedprojectDescription = HTMLprojectDescription.replace("%data%", projects.projects[i].description);
-            var formattedProjectImage = HTMLprojectImage.replace("%data%", projects.projects[i].images);
-            ////////////////////////////////////////////////////////////////////////////
+
             $(".project-entry:last").append(formattedprojectTitle);
             $(".project-entry:last").append(formattedprojectDates);
             $(".project-entry:last").append(formattedprojectDescription);
-            $(".project-entry:last").append(formattedProjectImage);
+            
+        
+            
+            for (var image = 0; image < projects.projects[i].images.length; image++){
+                var formattedProjectImage = HTMLprojectImage.replace("%data%", projects.projects[i].images[image]);
+                $(".project-entry:last").append(formattedProjectImage);
 
+}
         }
     }
 
