@@ -85,7 +85,7 @@ bio.display = function() {
     
     if (bio.skills.length > 0) {
     $("#header").append(HTMLskillsStart);
-        for (i = 0; i < bio.skills.length; i++) {
+        for ( var i = 0; i < bio.skills.length; i++) {
     var formattedSkill = HTMLskills.replace("%data%", bio.skills[i]);
     $("#skills").append(formattedSkill);
     }
@@ -137,7 +137,7 @@ education.display = function() {
         if (education.onlineCourses.length > 0) {
             $("#education").append(HTMLonlineClasses);
 
-            for (i = 0; i < education.onlineCourses.length; i++) {
+            for (var i = 0; i < education.onlineCourses.length; i++) {
                 $("#education").append(HTMLschoolStart);
                 var formattedOnlineTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[i].title);
                 var formattedOnlineSchool = HTMLonlineSchool.replace("%data%", education.onlineCourses[i].school);
@@ -160,7 +160,7 @@ work.display = function() {
     if (work.jobs.length > 0) {
         $("#workExperience").append(HTMLworkStart);
         
-         for (i = 0; i < work.jobs.length; i++) {
+         for (var i = 0; i < work.jobs.length; i++) {
             var formattedworkEmployer = HTMLworkEmployer.replace("%data%", work.jobs[i].employer);
             var formattedWorkTitle = HTMLworkTitle.replace("%data%", work.jobs[i].title);
             var formattedEmployerTitle = formattedworkEmployer + formattedWorkTitle;
@@ -179,7 +179,7 @@ projects.display = function() {
     if (projects.projects.length > 0) {
         $("#projects").append(HTMLprojectStart);
 
-        for (i = 0; i < projects.projects.length; i++) {
+        for (var i = 0; i < projects.projects.length; i++) {
             var formattedprojectTitle = HTMLprojectTitle.replace("%data%", projects.projects[i].title).replace("%data%", projects.projects[i].title);
             var formattedprojectDates = HTMLprojectDates.replace("%data%", projects.projects[i].dates);
             var formattedprojectDescription = HTMLprojectDescription.replace("%data%", projects.projects[i].description);
